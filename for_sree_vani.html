@@ -1,0 +1,145 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>From Me To You 💌</title>
+
+      <!-- Gloria Hallelujah font -->
+      <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet"/>
+
+      <style>
+        body {
+          margin: 0;
+          padding: 0;
+          background: linear-gradient(to bottom right, #ffe4ec, #d9eafc);
+          font-family: 'Gloria Hallelujah', cursive;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          overflow: hidden;
+        }
+
+        .container {
+          text-align: center;
+          position: relative;
+        }
+
+        .envelope {
+          width: 180px;
+          cursor: pointer;
+          transition: transform 0.3s ease;
+          z-index: 1;
+          position: relative;
+        }
+
+        .envelope:hover {
+          transform: scale(1.05);
+        }
+
+        .click-message {
+          margin-top: 15px;
+          font-size: 18px;
+          color: #333;
+          transition: opacity 0.3s ease;
+        }
+
+        .click-message.hidden {
+          opacity: 0;
+          visibility: hidden;
+        }
+
+        .letter {
+          display: none;
+          position: absolute;
+          top: 20px;
+          left: 50%;
+          transform: translateX(-50%) scale(0.8);
+          width: 300px;
+          background-color: #fffaf0;
+          padding: 25px;
+          border-radius: 15px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+          z-index: 999;
+          animation: fadeIn 0.8s ease forwards;
+          max-height: 400px; /* Set a max height for the letter */
+          overflow-y: auto; /* Enable scrolling if the content overflows */
+        }
+
+        .letter.show {
+          display: block;
+        }
+
+        .letter-content {
+          font-size: 18px;
+          color: #4b3f3f;
+          line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translate(-50%, 60px) scale(0.5);
+          }
+          to {
+            opacity: 1;
+            transform: translate(-50%, 0) scale(1);
+          }
+        }
+
+        @media screen and (max-width: 480px) {
+          .letter {
+            width: 80vw;
+            padding: 20px;
+            font-size: 16px;
+          }
+
+          .envelope {
+            width: 140px;
+          }
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <img
+          src="https://static.vecteezy.com/system/resources/thumbnails/048/033/832/small_2x/love-envelope-icon-with-cute-design-png.png"
+          alt="Cute Envelope"
+          class="envelope"
+          onclick="toggleLetter()"
+        />
+        <div class="click-message" id="clickText">Pssst… tap the envelope, I have something for you 💖</div>
+
+        <div class="letter" id="letter" onclick="toggleLetter()">
+          <div class="letter-content">
+            Hey Sree Vani  💖,<br><br>
+            Sree Vaniii 🩷 hey baby girllll 💌 cutieeeee pie you are!!! Your cuteee smiles and those tinyyy expressions 🥺👉👈 ufff you’re the cutesttttt ever 😩💖 I’m sooo happieeee to have you as my girlfrienddd >-<  stayy happieeee always and keep that precious smile glowing forever ✨🌸<br><br>
+            With lots of love,<br>
+            ~ R🤍
+          </div>
+        </div>
+      </div>
+
+      <script>
+        let isOpen = false;
+
+        function toggleLetter() {
+          const letter = document.getElementById("letter");
+          const clickText = document.getElementById("clickText");
+
+          if (!isOpen) {
+            letter.classList.add("show");
+            clickText.classList.add("hidden");
+            isOpen = true;
+          } else {
+            letter.classList.remove("show");
+            clickText.classList.remove("hidden");
+            isOpen = false;
+          }
+        }
+      </script>
+    </body>
+    </html>
+    
